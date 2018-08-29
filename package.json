@@ -1,0 +1,24 @@
+{
+  "name": "maybe-monad",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dnlowman/maybe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dnlowman/maybe/issues"
+  },
+  "homepage": "https://github.com/dnlowman/maybe#readme",
+  "devDependencies": {
+    "typescript": "^3.0.1"
+  }
+}
