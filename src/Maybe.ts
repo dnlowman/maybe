@@ -1,19 +1,19 @@
-export default class Maybe {
-    private readonly value: any;
+export default class Maybe<T> {
+    private readonly value: T;
 
-    private constructor(value: any) {
+    private constructor(value: T) {
         this.value = value;
     }
 
-    public static of(value: any): Maybe {
+    public static of<T>(value: T): Maybe<T> {
         return new Maybe(value);
     }
 
-    public isNothing() {
+    public isNothing(): boolean {
         return this.value === undefined || this.value === null;
     }
 
-    public map(f: (value: any) => any): any {
+    public map<U>(f: (value: T) => U): Maybe<U | null> {
         if (this.isNothing()) {
             return Maybe.of(null);
         }
@@ -21,15 +21,15 @@ export default class Maybe {
         return Maybe.of(f(this.value));
     }
 
-    public join() {
+    public join(): T {
         return this.value;
     }
 
-    public chain(f: () => any) {
+    public chain<U>(f: (value: T) => U) {
         return this.map(f).join();
     }
 
-    public orElse(value: any): Maybe {
+    public orElse<U>(value: U): Maybe<T | U> {
         if (this.isNothing()) {
             return Maybe.of(value);
         }
@@ -37,8 +37,7 @@ export default class Maybe {
         return this;
     }
 
-
-    public apply(f: Maybe) {
+    public apply(f: any): any {
         return f.map(this.value);
     }
 }
